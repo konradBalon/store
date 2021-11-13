@@ -1,9 +1,25 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %}
 
-{%  block title %}
+{#tylko jak ladujemy custom JS do nowego pliku#}
+{% load static %}
+
+{% block title %}
     Podstrona - Home
 {% endblock %}
-{%  block container %}
 
-<h1>tekst z pliku home.html</h1>
+{% block container %}
+    <h1>tekst z pliku home.html</h1>
+{% endblock %}
+
+{% block scripts %}
+    {#    dziedziczenie JS z base.html#}
+    {{ block.super }}
+    <script src="{% static 'scripts/main.js' %}" async defer></script>
+{% endblock %}
+
+{% block aside %}
+    <h2>comes from home as aside block</h2>
+    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cum cupiditate dolores expedita
+        ipsa iusto, libero, non nostrum obcaecati omnis optio perspiciatis provident qui quis sunt veniam. Officia,
+        quos!</h3>
 {% endblock %}
