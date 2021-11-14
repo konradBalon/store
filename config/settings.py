@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import store.apps
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -45,7 +47,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     # local
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    'store.apps.StoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +139,8 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 ]
+MEDIA_ROOT = BASE_DIR.joinpath('media')
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
